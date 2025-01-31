@@ -1,0 +1,5 @@
+Basic Jekyll Configuration
+title: Fetch a Friend
+theme: jekyll-theme-primer
+Specify the source directory if your site is in a subdirectory
+source: .
