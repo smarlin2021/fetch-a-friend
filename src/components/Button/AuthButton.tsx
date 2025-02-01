@@ -15,7 +15,7 @@ export const AuthButton: React.FC<AuthButtonProps> = ({ isLoggedIn }) => {
     setIsLoading(true);
     try {
       await apiService.logout();
-      navigate('/login');
+      navigate('/fetch-a-friend/login');
     } catch (err) {
       console.error('Logout failed:', err);
     } finally {
@@ -24,7 +24,7 @@ export const AuthButton: React.FC<AuthButtonProps> = ({ isLoggedIn }) => {
   };
 
   const handleLoginClick = () => {
-    navigate('/login');
+    navigate('/fetch-a-friend/login');
   };
 
   return (
