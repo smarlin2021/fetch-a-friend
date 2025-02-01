@@ -2,7 +2,7 @@ import { IconBone, IconMoon, IconSun } from '@tabler/icons-react';
 import cx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { ActionIcon, Group, useComputedColorScheme, useMantineColorScheme } from '@mantine/core';
-import useAuth from '@/hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import { AuthButton } from '../Button/AuthButton';
 import classes from './Header.module.css';
 

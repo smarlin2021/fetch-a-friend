@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Autocomplete, Button, Container, Paper, Title } from '@mantine/core';
-import apiService from '@/data/APIConnection';
+import apiService from '../../data/APIConnection';
 import classes from './Login.module.css';
 
 const Login = () => {
