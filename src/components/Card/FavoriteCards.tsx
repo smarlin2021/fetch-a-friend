@@ -1,4 +1,5 @@
 import { AspectRatio, Button, Card, Group, Image, Text } from '@mantine/core';
+import classes from './Cards.module.css';
 
 interface Dog {
   id: string;
@@ -15,7 +16,7 @@ interface FavoriteCardsProps {
 
 const FavoriteCards = ({ dog, onRemove }: FavoriteCardsProps) => {
   return (
-    <Card key={dog.id}>
+    <Card key={dog.id} className={classes.card}>
       <AspectRatio ratio={1920 / 1080}>
         <Image src={dog.img} alt={dog.name} />
       </AspectRatio>

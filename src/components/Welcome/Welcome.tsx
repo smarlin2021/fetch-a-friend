@@ -31,7 +31,7 @@ export function Welcome() {
         >
           Browse our dogs
         </Button>
-        <Text size="sm" mt="sm">
+        <Text size="sm" mt="sm" c="white">
           Photo taken by Sierra Marlin
         </Text>
       </Container>
