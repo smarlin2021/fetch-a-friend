@@ -7,19 +7,19 @@ import LoginPage from './pages/Login.page';
 export function Router() {
   const router = createBrowserRouter([
     {
-      path: '/',
+      path: '/fetch-a-friend',
       element: <HomePage />,
     },
     {
-      path: '/login',
+      path: '/fetch-a-friend/login',
       element: <LoginPage />,
     },
     {
-      path: '/dogs',
+      path: '/fetch-a-friend/dogs',
       element: <AdoptionsPage />,
     },
     {
-      path: '/favorites',
+      path: '/fetch-a-friend/favorites',
       element: <FavoritesPage />,
     },
   ]);

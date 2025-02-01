@@ -6,9 +6,9 @@ import { AuthButton } from '../Button/AuthButton';
 import classes from './Header.module.css';
 
 const links = [
-  { link: '/', label: 'Home' },
-  { link: '/dogs', label: 'Dogs for Adoption' },
-  { link: '/favorites', label: 'Your Favorites' },
+  { link: '/fetch-a-friend', label: 'Home' },
+  { link: '/fetch-a-friend/dogs', label: 'Dogs for Adoption' },
+  { link: '/fetch-a-friend/favorites', label: 'Your Favorites' },
 ];
 
 export function Header() {

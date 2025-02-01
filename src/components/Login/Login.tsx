@@ -33,7 +33,7 @@ const Login = () => {
       await apiService.login(formData);
       setIsLoggedIn(true);
       setFormData({ name: '', email: '' });
-      navigate('/');
+      navigate('/fetch-a-friend');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unexpected error occurred');
     } finally {
