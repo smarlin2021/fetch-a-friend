@@ -12,7 +12,7 @@ const useAuth = () => {
         await apiService.getBreeds();
         setIsVerifying(false);
       } catch (error) {
-        navigate('/login');
+        navigate('/fetch-a-friend/login');
         setIsVerifying(false);
       }
     };

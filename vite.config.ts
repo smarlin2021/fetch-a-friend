@@ -7,10 +7,5 @@ export default defineConfig({
   base: "/fetch-a-friend/",
   build: {
     outDir: 'dist'
-  },
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './vitest.setup.mjs',
-  },
+  }
 });
