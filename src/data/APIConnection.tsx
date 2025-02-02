@@ -37,7 +37,7 @@ export const SORT_OPTIONS = [
   { value: 'age:desc', label: 'Age (Oldest First)' },
 ];
 
-const API_URL = 'https://frontend-take-home-service.fetch.com';
+const API_URL = import.meta.env.VITE_API_URL || 'https://frontend-take-home-service.fetch.com';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -47,16 +47,6 @@ const api = axios.create({
     'Content-Type': 'application/json',
   },
 });
-
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      window.location.href = '/login';
-    }
-    return Promise.reject(error);
-  }
-);
 
 const apiService = {
   async login(credentials: LoginCredentials): Promise<void> {
