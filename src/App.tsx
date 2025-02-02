@@ -8,7 +8,8 @@ import { HomePage } from './pages/Home.page';
 import LoginPage from './pages/Login.page';
 import { theme } from './theme';
 
-const basename = '/fetch-a-friend';
+const basename = import.meta.env.BASE_URL || '/fetch-a-friend';
+
 export default function App() {
   return (
     <MantineProvider theme={theme}>
@@ -17,7 +18,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/dogs" element={<AdoptionsPage />} />
-          <Route path="favorites" element={<FavoritesPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
         </Routes>
       </BrowserRouter>
     </MantineProvider>
