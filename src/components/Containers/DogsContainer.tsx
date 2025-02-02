@@ -130,7 +130,7 @@ const DogsContainer = () => {
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12, sm: 2 }} className={classes.button}>
-          <Button onClick={() => navigate('/fetch-a-friend/favorites')} variant="filled">
+          <Button onClick={() => navigate('/favorites')} variant="filled">
             View Favorites
           </Button>
         </Grid.Col>

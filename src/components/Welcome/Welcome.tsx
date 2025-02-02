@@ -26,7 +26,7 @@ export function Welcome() {
           className={classes.button}
           onClick={(e) => {
             e.preventDefault();
-            navigate('/fetch-a-friend/dogs');
+            navigate('/dogs');
           }}
         >
           Browse our dogs
