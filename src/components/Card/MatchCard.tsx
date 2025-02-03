@@ -1,4 +1,5 @@
 import { AspectRatio, Button, Card, Grid, Image, Stack, Text } from '@mantine/core';
+import classes from './Cards.module.css';
 
 interface Dog {
   id: string;
@@ -15,7 +16,7 @@ interface MatchCardProps {
 
 const MatchCard = ({ match, onClear }: MatchCardProps) => {
   return (
-    <Card p="xl" radius="md" withBorder>
+    <Card p="xl" radius="md" withBorder className={classes.card}>
       <Text size="lg" fw={700} mb="md">
         We found a match for you!
       </Text>
