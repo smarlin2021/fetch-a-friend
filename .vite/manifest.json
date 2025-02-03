@@ -1,11 +1,11 @@
 {
   "index.html": {
-    "file": "assets/index-D3AOMx1-.js",
-    "name": "index",
+    "file": "assets/main-DVVn0UZi.js",
+    "name": "main",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "assets/index-FLkuqccr.css"
+      "assets/main-FLkuqccr.css"
     ],
     "assets": [
       "assets/DSC01027-F16kmXln.jpg",
