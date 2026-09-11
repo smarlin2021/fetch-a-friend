@@ -1,6 +1,6 @@
 {
   "index.html": {
-    "file": "assets/index-DMn4RJ1z.js",
+    "file": "assets/index-CtnRwzVE.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -8,16 +8,11 @@
       "assets/index-DfS-3_53.css"
     ],
     "assets": [
-      "assets/DSC01027-F16kmXln.jpg",
-      "assets/bone-BNtI74LK.svg"
+      "assets/DSC01027-F16kmXln.jpg"
     ]
   },
   "src/DSC01027.jpg": {
     "file": "assets/DSC01027-F16kmXln.jpg",
     "src": "src/DSC01027.jpg"
-  },
-  "src/bone.svg": {
-    "file": "assets/bone-BNtI74LK.svg",
-    "src": "src/bone.svg"
   }
 }
