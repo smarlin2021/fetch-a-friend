@@ -2,3 +2,126 @@
     background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-6));
     ;
 }
+.matchOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+
+  perspective: 1200px;
+}
+
+.matchCard {
+  width: min(500px, 100%);
+
+  transform-style: preserve-3d;
+
+  animation: matchCardEnter 900ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+@keyframes matchCardEnter {
+  0% {
+    opacity: 0;
+
+    transform:
+      perspective(1200px)
+      rotateY(-180deg)
+      rotateZ(-12deg)
+      scale(0.45);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      perspective(1200px)
+      rotateY(15deg)
+      rotateZ(3deg)
+      scale(1.08);
+  }
+
+  75% {
+    transform:
+      perspective(1200px)
+      rotateY(-5deg)
+      rotateZ(-1deg)
+      scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      perspective(1200px)
+      rotateY(0deg)
+      rotateZ(0deg)
+      scale(1);
+  }
+}
+.matchOverlay::before {
+  content: "";
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.583) 0%,
+    rgba(255, 255, 255, 0.15) 35%,
+    transparent 70%
+  );
+
+  animation: matchGlow 1200ms ease-out both;
+}
+
+@keyframes matchGlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+.matchCard {
+  position: relative;
+  z-index: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .matchCard {
+    animation: matchFadeIn 300ms ease-out both;
+  }
+}
+
+@keyframes matchFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+canvas {
+  z-index: 2000 !important;
+}
+

@@ -16,7 +16,7 @@ import apiService, { Dog, SORT_OPTIONS } from '../../data/APIConnection';
 import DogCards from '../Card/DogCards';
 import classes from './DogsContainer.module.css';
 
-const DOGS_PER_PAGE = 8;
+const DOGS_PER_PAGE = 9;
 const FAVORITES_KEY = 'favoriteDogs';
 
 const DogsContainer = () => {

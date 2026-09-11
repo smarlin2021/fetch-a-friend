@@ -1,5 +1,7 @@
 import { AspectRatio, Button, Card, Grid, Image, Stack, Text } from '@mantine/core';
 import classes from './Cards.module.css';
+import confetti from 'canvas-confetti';
+import { useEffect } from 'react';
 
 interface Dog {
   id: string;
@@ -15,7 +17,41 @@ interface MatchCardProps {
 }
 
 const MatchCard = ({ match, onClear }: MatchCardProps) => {
+  useEffect
+(() => {
+  if (!match) return;
+
+  // Wait until the card starts appearing
+  const timer = setTimeout(() => {
+    confetti({
+  particleCount: 100,
+  spread: 80,
+  origin: {
+    x: 0.5,
+    y: 0.55,
+  },
+  colors: [
+    "#ff6b6b",
+    "#ff922b",
+    "#ffd43b",
+    "#69db7c",
+    "#74c0fc",
+    "#da77f2",
+  ],
+
+      disableForReducedMotion: true,
+    });
+  }, 300);
+
+  return () => clearTimeout(timer);
+}, [match]);
+
+  
+
   return (
+    <div className={classes.matchOverlay}>
+    <div className={classes.matchCard}>
+      <div className={classes.matchHeader}></div>
     <Card p="xl" radius="md" withBorder className={classes.card}>
       <Text size="lg" fw={700} mb="md">
         We found a match for you!
@@ -47,7 +83,10 @@ const MatchCard = ({ match, onClear }: MatchCardProps) => {
         </Grid.Col>
       </Grid>
     </Card>
-  );
+    </div>
+  </div>
+);
 };
+
 
 export default MatchCard;
