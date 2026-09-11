@@ -11,7 +11,7 @@ interface DogCardProps {
 
 const DogCards = ({ dog, isFavorite, onFavoriteToggle }: DogCardProps) => {
   return (
-    <Card key={dog.id} p="md" radius="md" component="a" href="#" className={classes.card}>
+    <Card key={dog.id} p="md" radius="md" component="a" className={classes.card}>
       <AspectRatio ratio={1920 / 1080}>
         <Image src={dog.img} alt={dog.name} />
       </AspectRatio>
