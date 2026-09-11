@@ -50,20 +50,52 @@ const api = axios.create({
 
 const apiService = {
   async login(credentials: LoginCredentials): Promise<void> {
-    try {
-      await api.post('/auth/login', credentials);
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        if (error.response?.status === 400) {
-          throw new Error('Invalid credentials');
-        }
-        if (error.response?.status === 429) {
-          throw new Error('Too many login attempts. Please try again later.');
-        }
+  try {
+    const response = await api.post('/auth/login', credentials);
+
+    console.log('LOGIN SUCCESS:', response.status);
+    console.log('LOGIN RESPONSE:', response.data);
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error('LOGIN ERROR:', {
+        status: error.response?.status,
+        data: error.response?.data,
+        headers: error.response?.headers,
+      });
+
+      if (error.response?.status === 400) {
+        throw new Error('Invalid credentials');
       }
-      throw new Error('Login failed. Please try again.');
+
+      if (error.response?.status === 429) {
+        throw new Error('Too many login attempts. Please try again later.');
+      }
     }
-  },
+
+    throw new Error('Login failed. Please try again.');
+  }
+},
+
+async getBreeds(): Promise<string[]> {
+  try {
+    const response = await api.get<string[]>('/dogs/breeds');
+
+    console.log('BREEDS SUCCESS:', response.status);
+
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error('BREEDS ERROR:', {
+        status: error.response?.status,
+        data: error.response?.data,
+        headers: error.response?.headers,
+      });
+    }
+
+    throw new Error('Failed to fetch breeds');
+  }
+},
+
 
   async logout(): Promise<void> {
     try {
@@ -81,26 +113,26 @@ const apiService = {
     }
   },
 
-  async getBreeds(): Promise<string[]> {
-    try {
-      const response = await api.get<string[]>('/dogs/breeds');
-      return response.data;
-    } catch (error) {
-      throw new Error('Failed to fetch breeds');
-    }
-  },
-  async getDogs(ids: string[]): Promise<Dog[]> {
-    try {
-      const response = await api.post<Dog[]>('/dogs', ids);
+  // async getBreeds(): Promise<string[]> {
+  //   try {
+  //     const response = await api.get<string[]>('/dogs/breeds');
+  //     return response.data;
+  //   } catch (error) {
+  //     throw new Error('Failed to fetch breeds');
+  //   }
+  // },
+  // async getDogs(ids: string[]): Promise<Dog[]> {
+  //   try {
+  //     const response = await api.post<Dog[]>('/dogs', ids);
 
-      return response.data;
+  //     return response.data;
 
-      // return dogs;
-    } catch (error) {
-      console.error('Error fetching dogs:', error);
-      throw error;
-    }
-  },
+  //     // return dogs;
+  //   } catch (error) {
+  //     console.error('Error fetching dogs:', error);
+  //     throw error;
+  //   }
+  // },
 
   async searchDogs({
     page,
